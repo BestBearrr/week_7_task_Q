@@ -2,10 +2,10 @@
 
 **Input**\
 `clk`: Basys3 Clock\
-`btnL, btnC, btnR, btnU`: Push buttons\
+`btnL, btnC, btnR, btnU`: Push buttons
 
 **Output**\
-`oled_data`: next pixel's colour\
+`oled_data`: next pixel's colour
 
 **Modules required**
 1. `Task_Q_Hongxun`: Top level module
