@@ -24,7 +24,7 @@ module set_square_colour #(
     parameter integer INIT_COLOUR = 0
 ) (
     input clk, btn,
-    input [15:0] SW,
+    input enabled,
     output reg [2:0] colour
     );
     
@@ -35,7 +35,7 @@ module set_square_colour #(
         if (~init) begin
             init <= 1;
             colour <= INIT_COLOUR;
-        end else if (btn & ~SW[15] & ~SW[14] & SW[13]) begin
+        end else if (btn & enabled) begin
            colour <= (colour == 4) ? 0 : colour + 1; 
         end
     end
