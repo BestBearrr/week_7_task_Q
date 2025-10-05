@@ -45,9 +45,9 @@ module task_Q_controller(
     */
 
     reg isEnabled = 0;
-    always @ (posedge clk)
+    always @ (posedge clk_1khz)
     begin
-        isEnabled <= (~SW15 & ~SW14 & SW13) ? 1 : 0;
+        isEnabled <= (~SW[15] & ~SW[14] & SW[13]) ? 1 : 0;
     end
     
     wire [2:0] left_square_colour;
