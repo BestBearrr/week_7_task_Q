@@ -46,8 +46,8 @@ module task_Q_controller(
     wire [2:0] left_square_colour;
     wire [2:0] middle_square_colour;
     wire [2:0] right_square_colour;
-    localparam left_square_colour_init = 3;
-    localparam middle_square_colour_init = 2;
+    localparam left_square_colour_init = 0;
+    localparam middle_square_colour_init = 3;
     localparam right_square_colour_init = 1;    
     set_square_colour #(
         .INIT_COLOUR(left_square_colour_init)
