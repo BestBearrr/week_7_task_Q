@@ -23,6 +23,7 @@
 module task_Q_controller(
     input clk_1khz, clk_6p25mhz,
     input btnL, btnC, btnR,
+    input [15:0] SW,
     input [6:0] px,
     input [5:0] py,
     output [15:0] oled_data
@@ -51,13 +52,13 @@ module task_Q_controller(
     localparam right_square_colour_init = 1;    
     set_square_colour #(
         .INIT_COLOUR(left_square_colour_init)
-    ) uLeftSquareColour (.clk(clk_1khz), .btn(btnL_debounced), .colour(left_square_colour));
+    ) uLeftSquareColour (.clk(clk_1khz), .btn(btnL_debounced), .SW(SW), .colour(left_square_colour));
     set_square_colour #(
         .INIT_COLOUR(middle_square_colour_init)
-    ) uMiddleSquareColour (.clk(clk_1khz), .btn(btnC_debounced), .colour(middle_square_colour));
+    ) uMiddleSquareColour (.clk(clk_1khz), .btn(btnC_debounced), .SW(SW), .colour(middle_square_colour));
     set_square_colour #(
         .INIT_COLOUR(right_square_colour_init)
-    ) uRightSquareColour (.clk(clk_1khz), .btn(btnR_debounced), .colour(right_square_colour));
+    ) uRightSquareColour (.clk(clk_1khz), .btn(btnR_debounced), .SW(SW), .colour(right_square_colour));
     
     draw_stuff udraw(.clk_1khz(clk_1khz), .clk_6p25mhz(clk_6p25mhz), .px(px), .py(py), .left_square_colour(left_square_colour), .middle_square_colour(middle_square_colour),
         .right_square_colour(right_square_colour), .oled_data(oled_data));
